@@ -18,10 +18,12 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
-const locationBtnRadio = document.getElementsByName("location");
+const locationBtnRadio = document.querySelectorAll(".checkbox-label");
+const termsOfUse = document.getElementById("terms");
 
 
-// Part modal
+
+// part modal
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -48,33 +50,97 @@ function closeForm() {
 }
 
 
+
 // Part form
 // Input firstname
-function firstNameOk() {
-  firstName.value.length >= 2;
-}
+firstName.addEventListener("keyup", firstNameOk);
 
+function firstNameOk() {
+  const alertMsg = document.querySelector(".firstname .alert-msg");
+  if (firstName.value.length >= 2) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
+}
+  
 // Input lastname
+lastName.addEventListener("keyup", lastNameOk);
+
 function lastNameOk() {
-  lastName.value.length >= 2;
+  const alertMsg = document.querySelector(".lastname .alert-msg");
+  if (lastName.value.length >= 2) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
 }
 
 // Input email
+email.addEventListener("keyup", emailOk);
+
 function emailOk() {
-  email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
+  const alertMsg = document.querySelector(".email .alert-msg");
+  const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
+  if (email.value.match(mailFormat)) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
 }
 
 // Input birthdate
+birthdate.addEventListener("change", birthdateOk);
+
 function birthdateOk() {
-  birthdate.value = [0-9];
+  const alertMsg = document.querySelector(".birthdate .alert-msg");
+  const birthdateFormat = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
+  if (birthdate.value.match(birthdateFormat)) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
 }
 
 // Input number
+quantityTournament.addEventListener("change", quantityTournamentOk);
+
 function quantityTournamentOk() {
-  quantityTournament.value = [0-9];
+  const alertMsg = document.querySelector(".quantityTournament .alert-msg");
+  if (quantityTournament.value.length = [0-9]) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
 }
 
 // Button radio for location
+locationBtnRadio.addEventListener("click", locationBtnRadioOk);
+
 function locationBtnRadioOk(){
-  locationBtnRadio.checked = true;
+  const alertMsg = document.querySelector(".location .alert-msg");
+  if (locationBtnRadio.checked = 1) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
+}
+
+// Terms of use
+termsOfUse.addEventListener("click", termsOfUseOk);
+
+function termsOfUseOk(){
+  const alertMsg = document.querySelector(".terms-of-use .alert-msg");
+  if (termsOfUse.checked) {
+    alertMsg.style.display = "none";
+  }
+  else {
+    alertMsg.style.display = "block";
+  }
 }
