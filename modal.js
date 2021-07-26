@@ -18,8 +18,9 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
-const locationBtnRadio = document.querySelectorAll(".checkbox-label");
-const termsOfUse = document.getElementById("terms");
+const locationBtnRadio = document.querySelectorAll(".checkbox-input");
+const checkboxLocation = document.querySelectorAll(".checkbox-label");
+const termsOfUse = document.getElementById("checkbox1");
 
 
 
@@ -59,11 +60,14 @@ function firstNameOk() {
   const alertMsg = document.querySelector(".firstname .alert-msg");
   if (firstName.value.length >= 2) {
     alertMsg.style.display = "none";
+    firstName.style.border = "none";
   }
   else {
     alertMsg.style.display = "block";
+    firstName.style.border = "2px solid #e54858";
   }
 }
+
   
 // Input lastname
 lastName.addEventListener("keyup", lastNameOk);
@@ -72,9 +76,12 @@ function lastNameOk() {
   const alertMsg = document.querySelector(".lastname .alert-msg");
   if (lastName.value.length >= 2) {
     alertMsg.style.display = "none";
+    lastName.style.border = "none";
   }
   else {
     alertMsg.style.display = "block";
+    lastName.style.border = "2px solid #e54858";
+
   }
 }
 
@@ -86,9 +93,11 @@ function emailOk() {
   const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
   if (email.value.match(mailFormat)) {
     alertMsg.style.display = "none";
+    email.style.border = "none";
   }
   else {
     alertMsg.style.display = "block";
+    email.style.border = "2px solid #e54858";
   }
 }
 
@@ -100,9 +109,11 @@ function birthdateOk() {
   const birthdateFormat = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
   if (birthdate.value.match(birthdateFormat)) {
     alertMsg.style.display = "none";
+    birthdate.style.border = "none";
   }
   else {
     alertMsg.style.display = "block";
+    birthdate.style.border = "2px solid #e54858";
   }
 }
 
@@ -113,22 +124,26 @@ function quantityTournamentOk() {
   const alertMsg = document.querySelector(".quantityTournament .alert-msg");
   if (quantityTournament.value.length = [0-9]) {
     alertMsg.style.display = "none";
+    quantityTournament.style.border = "none";
   }
   else {
     alertMsg.style.display = "block";
+    quantityTournament.style.border = "2px solid #e54858";
   }
 }
 
-// Button radio for location
+//Button radio for location
 locationBtnRadio.addEventListener("click", locationBtnRadioOk);
 
-function locationBtnRadioOk(){
+function locationBtnRadioOk() {
   const alertMsg = document.querySelector(".location .alert-msg");
-  if (locationBtnRadio.checked = 1) {
+  if (locationBtnRadio.checked) {
     alertMsg.style.display = "none";
+    checkboxLocation.style.border = "none";
   }
   else {
     alertMsg.style.display = "block";
+    checkboxLocation.style.color = "#e54858";
   }
 }
 
@@ -142,5 +157,6 @@ function termsOfUseOk(){
   }
   else {
     alertMsg.style.display = "block";
+    termsOfUse.style.color = "#e54858";
   }
 }
