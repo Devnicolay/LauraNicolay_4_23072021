@@ -12,6 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.getElementById("submit-btn");
+const modalBody = document.querySelector(".modal-body");
+const btnClose = document.getElementById("closebtn");
 const cross = document.querySelector(".close");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -38,8 +40,8 @@ btnSubmit.addEventListener("click", sendFormBtn);
 
 // close modal form
 function sendFormBtn() {
-  modalbg.style.display = "none";
-  alert("Merci! Votre réservation a été reçue.");
+  modalBody.innerHTML = "<p>Merci! Votre réservation a été reçue.</p> <button id=closebtn>Fermer</button>";
+  modalBody.style.color = "white";
 }
 
 // close modal event with the cross
@@ -47,6 +49,13 @@ cross.addEventListener("click", closeForm);
 
 // close modal form with the cross
 function closeForm() {
+  modalbg.style.display = "none";
+}
+
+// close window confirmation
+btnClose.addEventListener("click", closeConfirmation);
+
+function closeConfirmation() {
   modalbg.style.display = "none";
 }
 

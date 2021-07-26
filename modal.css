@@ -188,6 +188,18 @@ main {
   margin: 15px auto;
 }
 
+#closebtn {
+  background-color: #e54858;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 50px 10px 50px;
+  margin-top: 50px;
+  border-color: transparent;
+  display: block;
+  justify-content: center;
+  cursor: pointer;
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
