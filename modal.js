@@ -37,7 +37,7 @@ function launchModal() {
 }
 
 // close modal event
-btnSubmit.addEventListener("click", sendFormBtn);
+btnSubmit.addEventListener("click", formValidation);
 
 // close modal event with the cross
 cross.addEventListener("click", closeForm);
@@ -174,6 +174,7 @@ function errorValidation() {
 
 
 // Form validation
+
 function formValidation() {
   if (firstNameOk() == true +
       lastNameOk() == true +
@@ -183,6 +184,7 @@ function formValidation() {
       locationBtnRadioOk() == true +
       termsOfUseOk() == true) {
         validate();
+        sendFormBtn();
         form.reset();
       }
   else {
