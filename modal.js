@@ -23,6 +23,7 @@ const quantityTournament = document.getElementById("quantity")
 const locationBtnRadio = document.getElementsByName(".checkbox-input");
 const checkboxLocation = document.querySelectorAll(".checkbox-label");
 const termsOfUse = document.getElementById("checkbox1");
+const form = document.querySelector("form");
 
 
 
@@ -157,5 +158,34 @@ function termsOfUseOk(){
   }
   else {
     alertMsg.style.display = "flex";
+  }
+}
+
+// validation error filed
+function errorValidation() {
+  firstNameOk()
+  lastNameOk()
+  emailOk()
+  birthdateOk()
+  quantityTournamentOk()
+  locationBtnRadioOk()
+  termsOfUseOk()
+}
+
+
+// Form validation
+function formValidation() {
+  if (firstNameOk() == true +
+      lastNameOk() == true +
+      emailOk() == true +
+      birthdateOk() == true +
+      quantityTournamentOk() == true +
+      locationBtnRadioOk() == true +
+      termsOfUseOk() == true) {
+        validate();
+        form.reset();
+      }
+  else {
+    errorValidation();
   }
 }
