@@ -20,7 +20,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
-const locationBtnRadio = document.querySelectorAll(".checkbox-input");
+const locationBtnRadio = document.getElementsByName(".checkbox-input");
 const checkboxLocation = document.querySelectorAll(".checkbox-label");
 const termsOfUse = document.getElementById("checkbox1");
 
@@ -52,18 +52,11 @@ function closeForm() {
   modalbg.style.display = "none";
 }
 
-// close window confirmation
-btnClose.addEventListener("click", closeConfirmation);
-
-function closeConfirmation() {
-  modalbg.style.display = "none";
-}
-
 
 
 // Part form
 // Input firstname
-firstName.addEventListener("keyup", firstNameOk);
+firstName.addEventListener("blur", firstNameOk);
 
 function firstNameOk() {
   const alertMsg = document.querySelector(".firstname .alert-msg");
@@ -72,14 +65,14 @@ function firstNameOk() {
     firstName.style.border = "none";
   }
   else {
-    alertMsg.style.display = "block";
+    alertMsg.style.display = "flex";
     firstName.style.border = "2px solid #e54858";
   }
 }
 
   
 // Input lastname
-lastName.addEventListener("keyup", lastNameOk);
+lastName.addEventListener("blur", lastNameOk);
 
 function lastNameOk() {
   const alertMsg = document.querySelector(".lastname .alert-msg");
@@ -88,14 +81,13 @@ function lastNameOk() {
     lastName.style.border = "none";
   }
   else {
-    alertMsg.style.display = "block";
+    alertMsg.style.display = "flex";
     lastName.style.border = "2px solid #e54858";
-
   }
 }
 
 // Input email
-email.addEventListener("keyup", emailOk);
+email.addEventListener("blur", emailOk);
 
 function emailOk() {
   const alertMsg = document.querySelector(".email .alert-msg");
@@ -105,13 +97,13 @@ function emailOk() {
     email.style.border = "none";
   }
   else {
-    alertMsg.style.display = "block";
+    alertMsg.style.display = "flex";
     email.style.border = "2px solid #e54858";
   }
 }
 
 // Input birthdate
-birthdate.addEventListener("change", birthdateOk);
+birthdate.addEventListener("blur", birthdateOk);
 
 function birthdateOk() {
   const alertMsg = document.querySelector(".birthdate .alert-msg");
@@ -121,7 +113,7 @@ function birthdateOk() {
     birthdate.style.border = "none";
   }
   else {
-    alertMsg.style.display = "block";
+    alertMsg.style.display = "flex";
     birthdate.style.border = "2px solid #e54858";
   }
 }
@@ -136,28 +128,27 @@ function quantityTournamentOk() {
     quantityTournament.style.border = "none";
   }
   else {
-    alertMsg.style.display = "block";
+    alertMsg.style.display = "flex";
     quantityTournament.style.border = "2px solid #e54858";
   }
 }
 
 //Button radio for location
-locationBtnRadio.addEventListener("click", locationBtnRadioOk);
 
 function locationBtnRadioOk() {
   const alertMsg = document.querySelector(".location .alert-msg");
-  if (locationBtnRadio.checked) {
+  if (locationBtnRadio.checked.length >= 0) {
     alertMsg.style.display = "none";
     checkboxLocation.style.border = "none";
   }
   else {
-    alertMsg.style.display = "block";
+    alertMsg.style.display = "flex";
     checkboxLocation.style.color = "#e54858";
   }
 }
 
 // Terms of use
-termsOfUse.addEventListener("click", termsOfUseOk);
+termsOfUse.addEventListener("change", termsOfUseOk);
 
 function termsOfUseOk(){
   const alertMsg = document.querySelector(".terms-of-use .alert-msg");
@@ -165,7 +156,6 @@ function termsOfUseOk(){
     alertMsg.style.display = "none";
   }
   else {
-    alertMsg.style.display = "block";
-    termsOfUse.style.color = "#e54858";
+    alertMsg.style.display = "flex";
   }
 }
