@@ -38,18 +38,18 @@ function launchModal() {
 // close modal event
 btnSubmit.addEventListener("click", sendFormBtn);
 
-// close modal form
-function sendFormBtn() {
-  modalBody.innerHTML = "<p>Merci! Votre réservation a été reçue.</p> <button id=closebtn>Fermer</button>";
-  modalBody.style.color = "white";
-}
-
 // close modal event with the cross
 cross.addEventListener("click", closeForm);
 
 // close modal form with the cross
 function closeForm() {
   modalbg.style.display = "none";
+}
+
+// close modal form
+function sendFormBtn() {
+  modalBody.innerHTML = "<p>Merci! Votre réservation a été reçue.</p> <button id=closebtn onclick = closeForm() >Fermer</button>";
+  modalBody.style.color = "white";
 }
 
 
