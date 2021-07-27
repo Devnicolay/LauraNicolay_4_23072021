@@ -48,7 +48,7 @@ function closeForm() {
 
 // close modal form
 function sendFormBtn() {
-  modalBody.innerHTML = "<p>Merci! Votre réservation a été reçue.</p> <button id=closebtn onclick = closeForm() >Fermer</button>";
+  modalBody.innerHTML = "<div class=window-form-send><p>Merci!</p><p>Votre réservation a été reçue.</p> <button id=closebtn onclick = closeForm() >Fermer</button></div>";
   modalBody.style.color = "white";
 }
 

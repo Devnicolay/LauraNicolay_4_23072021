@@ -193,12 +193,18 @@ main {
   background-color: #e54858;
   color: white;
   border-radius: 10px;
-  padding: 10px 50px 10px 50px;
-  margin-top: 50px;
+  padding: 10px;
+  margin-top: 200px;
   border-color: transparent;
-  display: block;
-  justify-content: center;
   cursor: pointer;
+}
+
+/* windows for the form sending message (innerHTML in JS) */
+.window-form-send {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 70px 20px 70px;
+  text-align: center;
 }
 
 label {
