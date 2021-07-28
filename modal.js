@@ -20,7 +20,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
-const locationBtnRadio = document.getElementsByName(".checkbox-input");
+const locationBtnRadio = document.querySelectorAll(".checkbox-input");
 const termsOfUse = document.getElementById("checkbox1");
 const form = document.querySelector("form");
 
@@ -35,9 +35,6 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal event
-btnSubmit.addEventListener("click", formValidation);
-
 // close modal event with the cross
 cross.addEventListener("click", closeForm);
 
@@ -47,7 +44,7 @@ function closeForm() {
 }
 
 // close modal form
-function sendFormBtn() {
+function displaySuccessMessage() {
   modalBody.innerHTML = "<div class=window-form-send><p>Merci!</p><p>Votre réservation a été reçue.</p> <button id=closebtn onclick = closeForm() >Fermer</button></div>";
   modalBody.style.color = "white";
 }
@@ -60,13 +57,15 @@ firstName.addEventListener("blur", firstNameOk);
 
 function firstNameOk() {
   const alertMsg = document.querySelector(".firstname .alert-msg");
-  if (firstName.value.length >= 2) {
+  if (firstName.value.trim().length >= 2) {
     alertMsg.style.display = "none";
     firstName.style.border = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
     firstName.classList.add("border-red");
+    return false;
   }
 }
 
@@ -79,10 +78,12 @@ function lastNameOk() {
   if (lastName.value.length >= 2) {
     alertMsg.style.display = "none";
     lastName.style.border = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
     lastName.classList.add("border-red");
+    return false;
   }
 }
 
@@ -95,10 +96,12 @@ function emailOk() {
   if (email.value.match(mailFormat)) {
     alertMsg.style.display = "none";
     email.style.border = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
     email.classList.add("border-red");
+    return false;
   }
 }
 
@@ -111,10 +114,12 @@ function birthdateOk() {
   if (birthdate.value.match(birthdateFormat)) {
     alertMsg.style.display = "none";
     birthdate.style.border = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
     birthdate.classList.add("border-red");
+    return false;
   }
 }
 
@@ -126,10 +131,12 @@ function quantityTournamentOk() {
   if (quantityTournament.value.length = [0-9]) {
     alertMsg.style.display = "none";
     quantityTournament.style.border = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
     quantityTournament.classList.add("border-red");
+    return false;
   }
 }
 
@@ -138,12 +145,17 @@ function quantityTournamentOk() {
 function locationBtnRadioOk() {
   const alertMsg = document.querySelector(".location .alert-msg");
   const checkboxIconLocation = document.querySelectorAll(".checkbox-label .checkbox-icon");
-  if (locationBtnRadio.checked.length >= 0) {
+  const isRadioBtnChecked = Array.from(locationBtnRadio).some((radioBtn) => radioBtn.checked)
+  if (isRadioBtnChecked) {
     alertMsg.style.display = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
-    checkboxIconLocation.classList.add("checkbox-icon-border");
+    Array.from(checkboxIconLocation).forEach((checkbox) => {
+      checkbox.classList.add("checkbox-icon-border");
+    });
+    return false;
   }
 }
 
@@ -156,10 +168,12 @@ function termsOfUseOk(){
   if (termsOfUse.checked) {
     alertMsg.style.display = "none";
     checkboxIconTerms.style.border = "none";
+    return true;
   }
   else {
     alertMsg.style.display = "flex";
     checkboxIconTerms.style.border = "2px solid #e54858";
+    return false;
   }
 }
 
@@ -177,19 +191,19 @@ function errorValidation() {
 
 // Form validation
 
-function formValidation() {
-  if (firstNameOk() == true +
-      lastNameOk() == true +
-      emailOk() == true +
-      birthdateOk() == true +
-      quantityTournamentOk() == true +
-      locationBtnRadioOk() == true +
-      termsOfUseOk() == true) {
-        validate();
-        sendFormBtn();
+form.addEventListener("submit", formValidation);
+
+function formValidation(event) {
+event.preventDefault();
+  const isFirstNameValid = firstNameOk();
+  const isLastNameValid = lastNameOk();
+  const isEmailValid = emailOk();
+  const isBirthdateValid = birthdateOk();
+  const isQuantityTournamentValid = quantityTournamentOk();
+  const isLocationBtnValid = locationBtnRadioOk();
+  const isTermsOfUseValid = termsOfUseOk();
+  if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityTournamentValid && isLocationBtnValid && isTermsOfUseValid) {
+        displaySuccessMessage();
         form.reset();
       }
-  else {
-    errorValidation();
-  }
 }

@@ -242,7 +242,7 @@ input {
 }
 /* red border for checkbox with error message */
 .checkbox-icon-border {
-  border: 2px solid #e54858;
+  border: 2px solid #e54858 !important;
 }
 .checkbox-label,
 .checkbox2-label {
