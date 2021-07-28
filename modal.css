@@ -237,6 +237,14 @@ input {
   line-height: 0.3;
   display: none;
 }
+/* red border for input with error message */
+.border-red {
+  border: 2px solid #e54858;
+}
+/* red border for checkbox with error message */
+.checkbox-icon-border {
+  border: 2px solid #e54858;
+}
 .checkbox-label,
 .checkbox2-label {
   position: relative;

@@ -21,7 +21,6 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
 const locationBtnRadio = document.getElementsByName(".checkbox-input");
-const checkboxLocation = document.querySelectorAll(".checkbox-label");
 const termsOfUse = document.getElementById("checkbox1");
 const form = document.querySelector("form");
 
@@ -67,7 +66,7 @@ function firstNameOk() {
   }
   else {
     alertMsg.style.display = "flex";
-    firstName.style.border = "2px solid #e54858";
+    firstName.classList.add("border-red");
   }
 }
 
@@ -83,7 +82,7 @@ function lastNameOk() {
   }
   else {
     alertMsg.style.display = "flex";
-    lastName.style.border = "2px solid #e54858";
+    lastName.classList.add("border-red");
   }
 }
 
@@ -99,7 +98,7 @@ function emailOk() {
   }
   else {
     alertMsg.style.display = "flex";
-    email.style.border = "2px solid #e54858";
+    email.classList.add("border-red");
   }
 }
 
@@ -115,7 +114,7 @@ function birthdateOk() {
   }
   else {
     alertMsg.style.display = "flex";
-    birthdate.style.border = "2px solid #e54858";
+    birthdate.classList.add("border-red");
   }
 }
 
@@ -130,7 +129,7 @@ function quantityTournamentOk() {
   }
   else {
     alertMsg.style.display = "flex";
-    quantityTournament.style.border = "2px solid #e54858";
+    quantityTournament.classList.add("border-red");
   }
 }
 
@@ -138,13 +137,13 @@ function quantityTournamentOk() {
 
 function locationBtnRadioOk() {
   const alertMsg = document.querySelector(".location .alert-msg");
+  const checkboxIconLocation = document.querySelectorAll(".checkbox-label .checkbox-icon");
   if (locationBtnRadio.checked.length >= 0) {
     alertMsg.style.display = "none";
-    checkboxLocation.style.border = "none";
   }
   else {
     alertMsg.style.display = "flex";
-    checkboxLocation.style.color = "#e54858";
+    checkboxIconLocation.classList.add("checkbox-icon-border");
   }
 }
 
@@ -153,11 +152,14 @@ termsOfUse.addEventListener("change", termsOfUseOk);
 
 function termsOfUseOk(){
   const alertMsg = document.querySelector(".terms-of-use .alert-msg");
+  const checkboxIconTerms = document.getElementById("checkbox-icon-terms");
   if (termsOfUse.checked) {
     alertMsg.style.display = "none";
+    checkboxIconTerms.style.border = "none";
   }
   else {
     alertMsg.style.display = "flex";
+    checkboxIconTerms.style.border = "2px solid #e54858";
   }
 }
 
