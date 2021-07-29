@@ -126,7 +126,8 @@ quantityTournament.addEventListener("change", quantityTournamentOk);
 
 function quantityTournamentOk() {
   const alertMsg = document.querySelector(".quantityTournament .alert-msg");
-  if (quantityTournament.value.length = [0-9]) {
+  const quantityFormat = /[0-9]/;
+  if (quantityTournament.value.match(quantityFormat)) {
     alertMsg.style.display = "none";
     quantityTournament.style.border = "none";
     return true;
