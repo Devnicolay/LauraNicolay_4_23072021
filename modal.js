@@ -20,7 +20,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
-const locationBtnRadio = document.querySelectorAll(".checkbox-input");
+const locationBtnRadio = document.querySelectorAll("[name=location]");
 const termsOfUse = document.getElementById("checkbox1");
 const form = document.getElementById("form");
 
