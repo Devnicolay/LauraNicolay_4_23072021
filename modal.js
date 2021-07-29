@@ -14,7 +14,7 @@ const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.getElementById("submit-btn");
 const modalBody = document.querySelector(".modal-body");
 const btnClose = document.getElementById("closebtn");
-const cross = document.querySelector(".close");
+const crossClose = document.querySelector(".close");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
@@ -22,7 +22,7 @@ const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
 const locationBtnRadio = document.querySelectorAll(".checkbox-input");
 const termsOfUse = document.getElementById("checkbox1");
-const form = document.querySelector("form");
+const form = document.getElementById("form");
 
 
 
@@ -35,15 +35,14 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal event with the cross
-cross.addEventListener("click", closeForm);
-
 // close modal form with the cross
+crossClose.addEventListener("click", closeForm);
+
 function closeForm() {
   modalbg.style.display = "none";
 }
 
-// close modal form
+// lauch success message when submit form
 function displaySuccessMessage() {
   modalBody.innerHTML = "<div class=window-form-send><p>Merci!</p><p>Votre réservation a été reçue.</p> <button id=closebtn onclick = closeForm() >Fermer</button></div>";
   modalBody.style.color = "white";
@@ -51,7 +50,7 @@ function displaySuccessMessage() {
 
 
 
-// Part form
+// Form part
 // Input firstname
 firstName.addEventListener("blur", firstNameOk);
 
@@ -68,8 +67,7 @@ function firstNameOk() {
     return false;
   }
 }
-
-  
+ 
 // Input lastname
 lastName.addEventListener("blur", lastNameOk);
 
@@ -123,7 +121,7 @@ function birthdateOk() {
   }
 }
 
-// Input number
+// Input number of tournaments
 quantityTournament.addEventListener("change", quantityTournamentOk);
 
 function quantityTournamentOk() {
@@ -159,7 +157,7 @@ function locationBtnRadioOk() {
   }
 }
 
-// Terms of use
+// Checkbox terms of use
 termsOfUse.addEventListener("change", termsOfUseOk);
 
 function termsOfUseOk(){
@@ -177,7 +175,7 @@ function termsOfUseOk(){
   }
 }
 
-// validation error filed
+// validation error field
 function errorValidation() {
   firstNameOk()
   lastNameOk()
@@ -188,9 +186,7 @@ function errorValidation() {
   termsOfUseOk()
 }
 
-
 // Form validation
-
 form.addEventListener("submit", formValidation);
 
 function formValidation(event) {
@@ -203,7 +199,7 @@ event.preventDefault();
   const isLocationBtnValid = locationBtnRadioOk();
   const isTermsOfUseValid = termsOfUseOk();
   if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityTournamentValid && isLocationBtnValid && isTermsOfUseValid) {
-        displaySuccessMessage();
         form.reset();
+        displaySuccessMessage();
       }
 }
