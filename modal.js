@@ -58,7 +58,7 @@ function firstNameOk() {
   const alertMsg = document.querySelector(".firstname .alert-msg");
   if (firstName.value.trim().length >= 2) {
     alertMsg.style.display = "none";
-    firstName.style.border = "none";
+    firstName.classList.remove("border-red");
     return true;
   }
   else {
@@ -75,7 +75,7 @@ function lastNameOk() {
   const alertMsg = document.querySelector(".lastname .alert-msg");
   if (lastName.value.length >= 2) {
     alertMsg.style.display = "none";
-    lastName.style.border = "none";
+    lastName.classList.remove("border-red");
     return true;
   }
   else {
@@ -93,7 +93,7 @@ function emailOk() {
   const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
   if (email.value.match(mailFormat)) {
     alertMsg.style.display = "none";
-    email.style.border = "none";
+    email.classList.remove("border-red");
     return true;
   }
   else {
@@ -111,7 +111,7 @@ function birthdateOk() {
   const birthdateFormat = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
   if (birthdate.value.match(birthdateFormat)) {
     alertMsg.style.display = "none";
-    birthdate.style.border = "none";
+    birthdate.classList.remove("border-red");
     return true;
   }
   else {
@@ -129,7 +129,7 @@ function quantityTournamentOk() {
   const quantityFormat = /[0-9]/;
   if (quantityTournament.value.match(quantityFormat)) {
     alertMsg.style.display = "none";
-    quantityTournament.style.border = "none";
+    quantityTournament.classList.remove("border-red");
     return true;
   }
   else {
