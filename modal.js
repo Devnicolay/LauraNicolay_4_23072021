@@ -140,7 +140,6 @@ function quantityTournamentOk() {
 }
 
 //Button radio for location
-
 function locationBtnRadioOk() {
   const alertMsg = document.querySelector(".location .alert-msg");
   const checkboxIconLocation = document.querySelectorAll(".checkbox-label .checkbox-icon");
@@ -176,16 +175,7 @@ function termsOfUseOk(){
   }
 }
 
-// validation error field
-function errorValidation() {
-  firstNameOk()
-  lastNameOk()
-  emailOk()
-  birthdateOk()
-  quantityTournamentOk()
-  locationBtnRadioOk()
-  termsOfUseOk()
-}
+
 
 // Form validation
 form.addEventListener("submit", formValidation);
