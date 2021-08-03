@@ -9,17 +9,17 @@ Projet 4 du parcours développeur Front-end chez Openclassrooms qui a pour objec
 
 ## Maquette mobile de la page d'accueil
 
-![alt tag](.maquettes/maquette-accueil.png)
+![alt tag](./maquettes/maquette-accueil.png)
 
 ## Maquette mobile de la modale du formulaire
 
-![alt tag](.maquettes/maquette-form.png)
+![alt tag](./maquettes/maquette-form.png)
 
 ## Éléments fournis par l’entreprise virtuelle
 
-- La maquette mobile de la page d’accueil, de la modale formulaire et de la modale confirmation de la réservation (https://www.figma.com/file/prxFGnSUoEhk6PTcMaJQim/UI-Design-GameOn-EN?node-id=0%3A1)
-- Le repo du code déja complété (https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/)
-- Les issues sur le repo GitHub qui décrivent ce qu'il reste à faire (https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/issues)
+- La maquette mobile de la page d’accueil, de la modale formulaire et de la modale confirmation de la réservation [Maquettes](https://www.figma.com/file/prxFGnSUoEhk6PTcMaJQim/UI-Design-GameOn-EN?node-id=0%3A1)
+- Le repo du code déja complété [Repo](https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/)
+- Les issues sur le repo GitHub qui décrivent ce qu'il reste à faire [Issues](https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/issues)
 
 
 ## Cahier des charges
