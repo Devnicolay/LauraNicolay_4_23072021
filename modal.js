@@ -10,8 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const btnSubmit = document.getElementById("submit-btn");
 const windowFormSend = document.querySelector(".window-form-send");
 const modalBody = document.querySelector(".modal-body");
 const btnClose = document.getElementById("closebtn");
@@ -21,7 +19,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantityTournament = document.getElementById("quantity")
-const locationBtnRadio = document.querySelectorAll("[name=location]");
+const locationBtnRadios = document.querySelectorAll("[name=location]");
 const termsOfUse = document.getElementById("checkbox1");
 const form = document.getElementById("form");
 
@@ -50,7 +48,7 @@ function displaySuccessMessage() {
 }
 
 // When click on button id= closebtn, launch function closeForm 
-closebtn.addEventListener("click", closeForm);
+btnClose.addEventListener("click", closeForm);
 
 
 
@@ -131,7 +129,7 @@ quantityTournament.addEventListener("change", quantityTournamentOk);
 function quantityTournamentOk() {
   const alertMsg = document.querySelector(".quantityTournament .alert-msg");
   const quantityFormat = /[0-9]/;
-  if (quantityTournament.value.match(quantityFormat) {
+  if (quantityTournament.value.match(quantityFormat) && quantityTournament.value >= 0) {
     alertMsg.style.display = "none";
     quantityTournament.classList.remove("border-red");
     return true;
@@ -144,10 +142,13 @@ function quantityTournamentOk() {
 }
 
 //Button radio for location
+locationBtnRadios.forEach((locationBtnRadio) => {
+  locationBtnRadio.addEventListener("change", locationBtnRadioOk);
+})
 function locationBtnRadioOk() {
   const alertMsg = document.querySelector(".location .alert-msg");
   const checkboxIconLocation = document.querySelectorAll(".checkbox-label .checkbox-icon");
-  const isRadioBtnChecked = Array.from(locationBtnRadio).some((radioBtn) => radioBtn.checked)
+  const isRadioBtnChecked = Array.from(locationBtnRadios).some((radioBtn) => radioBtn.checked)
   if (isRadioBtnChecked) {
     alertMsg.style.display = "none";
     Array.from(checkboxIconLocation).forEach((checkbox) => {
