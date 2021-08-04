@@ -66,7 +66,12 @@ img {
 }
 
 .topnav .icon {
+  color: #ff0000;
   display: none;
+}
+
+.hero-content {
+  word-wrap: break-word;
 }
 
 @media screen and (max-width: 768px) {
@@ -112,8 +117,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -348,6 +351,9 @@ input {
   cursor: pointer;
   border: 0;
 }
+.btn-submit {
+  margin-top: 20px;
+}
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -435,7 +441,6 @@ input {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
 }
 .hero-content::after {
   content: "";
