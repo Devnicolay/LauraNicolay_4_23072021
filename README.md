@@ -9,11 +9,11 @@ Projet 4 du parcours développeur Front-end chez Openclassrooms qui a pour objec
 
 ## Maquette mobile de la page d'accueil
 
-![alt tag](./maquettes/maquette-accueil.png)
+![alt tag](./images/maquettes/maquette-accueil.png)
 
 ## Maquette mobile de la modale du formulaire
 
-![alt tag](./maquettes/maquette-form.png)
+![alt tag](./images/maquettes/maquette-form.png)
 
 ## Éléments fournis par l’entreprise virtuelle
 
