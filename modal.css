@@ -193,17 +193,18 @@ main {
   color: white;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 200px;
+  margin-top: 250px;
   border-color: transparent;
   cursor: pointer;
 }
 
 /* windows for the form sending message (innerHTML in JS) */
 .window-form-send {
-  display: flex;
+  display: none;
   flex-direction: column;
-  padding: 100px 70px 20px 70px;
+  padding: 250px 100px 20px 100px;
   text-align: center;
+  color: white;
 }
 
 label {

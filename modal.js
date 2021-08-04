@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const btnSubmit = document.getElementById("submit-btn");
+const windowFormSend = document.querySelector(".window-form-send");
 const modalBody = document.querySelector(".modal-body");
 const btnClose = document.getElementById("closebtn");
 const crossClose = document.querySelector(".close");
@@ -42,11 +43,14 @@ function closeForm() {
   modalbg.style.display = "none";
 }
 
-// lauch success message when submit form
+// launch success message when submit form
 function displaySuccessMessage() {
-  modalBody.innerHTML = "<div class=window-form-send><p>Merci!</p><p>Votre réservation a été reçue.</p> <button id=closebtn onclick = closeForm() >Fermer</button></div>";
-  modalBody.style.color = "white";
+  windowFormSend.style.display = "flex";
+  modalBody.style.display= "none";
 }
+
+// When click on button id= closebtn, launch function closeForm 
+closebtn.addEventListener("click", closeForm);
 
 
 
@@ -90,7 +94,7 @@ email.addEventListener("blur", emailOk);
 
 function emailOk() {
   const alertMsg = document.querySelector(".email .alert-msg");
-  const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
+  const mailFormat = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
   if (email.value.match(mailFormat)) {
     alertMsg.style.display = "none";
     email.classList.remove("border-red");
@@ -127,7 +131,7 @@ quantityTournament.addEventListener("change", quantityTournamentOk);
 function quantityTournamentOk() {
   const alertMsg = document.querySelector(".quantityTournament .alert-msg");
   const quantityFormat = /[0-9]/;
-  if (quantityTournament.value.match(quantityFormat)) {
+  if (quantityTournament.value.match(quantityFormat) {
     alertMsg.style.display = "none";
     quantityTournament.classList.remove("border-red");
     return true;
@@ -146,6 +150,9 @@ function locationBtnRadioOk() {
   const isRadioBtnChecked = Array.from(locationBtnRadio).some((radioBtn) => radioBtn.checked)
   if (isRadioBtnChecked) {
     alertMsg.style.display = "none";
+    Array.from(checkboxIconLocation).forEach((checkbox) => {
+      checkbox.classList.remove("checkbox-icon-border");
+    });
     return true;
   }
   else {
@@ -181,7 +188,7 @@ function termsOfUseOk(){
 form.addEventListener("submit", formValidation);
 
 function formValidation(event) {
-event.preventDefault();
+  event.preventDefault();
   const isFirstNameValid = firstNameOk();
   const isLastNameValid = lastNameOk();
   const isEmailValid = emailOk();
@@ -190,7 +197,7 @@ event.preventDefault();
   const isLocationBtnValid = locationBtnRadioOk();
   const isTermsOfUseValid = termsOfUseOk();
   if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityTournamentValid && isLocationBtnValid && isTermsOfUseValid) {
-        form.reset();
-        displaySuccessMessage();
+      form.reset();
+      displaySuccessMessage();
       }
 }
