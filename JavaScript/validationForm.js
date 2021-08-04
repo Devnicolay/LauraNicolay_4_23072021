@@ -12,9 +12,9 @@ const form = document.getElementById("form");
 
 // Form part
 // Input firstname
-firstName.addEventListener("blur", firstNameOk);
+firstName.addEventListener("blur", firstNameCheck);
 
-function firstNameOk() {
+function firstNameCheck() {
   const alertMsg = document.querySelector(".firstname .alert-msg");
   if (firstName.value.trim().length >= 2) {
     alertMsg.style.display = "none";
@@ -29,9 +29,9 @@ function firstNameOk() {
 }
  
 // Input lastname
-lastName.addEventListener("blur", lastNameOk);
+lastName.addEventListener("blur", lastNameCheck);
 
-function lastNameOk() {
+function lastNameCheck() {
   const alertMsg = document.querySelector(".lastname .alert-msg");
   if (lastName.value.trim().length >= 2) {
     alertMsg.style.display = "none";
@@ -46,9 +46,9 @@ function lastNameOk() {
 }
 
 // Input email
-email.addEventListener("blur", emailOk);
+email.addEventListener("blur", emailCheck);
 
-function emailOk() {
+function emailCheck() {
   const alertMsg = document.querySelector(".email .alert-msg");
   const mailFormat = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;
   if (email.value.match(mailFormat)) {
@@ -64,9 +64,9 @@ function emailOk() {
 }
 
 // Input birthdate
-birthdate.addEventListener("blur", birthdateOk);
+birthdate.addEventListener("blur", birthdateCheck);
 
-function birthdateOk() {
+function birthdateCheck() {
   const alertMsg = document.querySelector(".birthdate .alert-msg");
   const birthdateFormat = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
   if (birthdate.value.match(birthdateFormat)) {
@@ -82,9 +82,9 @@ function birthdateOk() {
 }
 
 // Input number of tournaments
-quantityTournament.addEventListener("change", quantityTournamentOk);
+quantityTournament.addEventListener("change", quantityTournamentCheck);
 
-function quantityTournamentOk() {
+function quantityTournamentCheck() {
   const alertMsg = document.querySelector(".quantityTournament .alert-msg");
   const quantityFormat = /[0-9]/;
   if (quantityTournament.value.match(quantityFormat) && quantityTournament.value >= 0) {
@@ -101,9 +101,9 @@ function quantityTournamentOk() {
 
 //Button radio for location
 locationBtnRadios.forEach((locationBtnRadio) => {
-  locationBtnRadio.addEventListener("change", locationBtnRadioOk);
+  locationBtnRadio.addEventListener("change", locationBtnRadioCheck);
 })
-function locationBtnRadioOk() {
+function locationBtnRadioCheck() {
   const alertMsg = document.querySelector(".location .alert-msg");
   const checkboxIconLocation = document.querySelectorAll(".checkbox-label .checkbox-icon");
   const isRadioBtnChecked = Array.from(locationBtnRadios).some((radioBtn) => radioBtn.checked)
@@ -124,9 +124,9 @@ function locationBtnRadioOk() {
 }
 
 // Checkbox terms of use
-termsOfUse.addEventListener("change", termsOfUseOk);
+termsOfUse.addEventListener("change", termsOfUseCheck);
 
-function termsOfUseOk(){
+function termsOfUseCheck(){
   const alertMsg = document.querySelector(".terms-of-use .alert-msg");
   const checkboxIconTerms = document.getElementById("checkbox-icon-terms");
   if (termsOfUse.checked) {
@@ -148,13 +148,13 @@ form.addEventListener("submit", formValidation);
 
 function formValidation(event) {
   event.preventDefault();
-  const isFirstNameValid = firstNameOk();
-  const isLastNameValid = lastNameOk();
-  const isEmailValid = emailOk();
-  const isBirthdateValid = birthdateOk();
-  const isQuantityTournamentValid = quantityTournamentOk();
-  const isLocationBtnValid = locationBtnRadioOk();
-  const isTermsOfUseValid = termsOfUseOk();
+  const isFirstNameValid = firstNameCheck();
+  const isLastNameValid = lastNameCheck();
+  const isEmailValid = emailCheck();
+  const isBirthdateValid = birthdateCheck();
+  const isQuantityTournamentValid = quantityTournamentCheck();
+  const isLocationBtnValid = locationBtnRadioCheck();
+  const isTermsOfUseValid = termsOfUseCheck();
   if (isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityTournamentValid && isLocationBtnValid && isTermsOfUseValid) {
       form.reset();
       displaySuccessMessage();
