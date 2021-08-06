@@ -1,14 +1,14 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
+const iconMenuMobile = document.querySelector(".icon");
+iconMenuMobile.addEventListener("click", navMobile);
+function navMobile() {
+  var myTopNav = document.getElementById("myTopnav");
   // x will be element with id "myTopnav"
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  if (myTopNav.className === "topnav") {
+    myTopNav.className += " responsive";
   } else {
-    x.className = "topnav";
+    myTopNav.className = "topnav";
   }
-  // if x has class with the name "topnav" concatenate of class "reponsive" who is in the class "topnav"
-  // and apply the style of CSS for max-width: 768px
-  // else x will be class with the name "topnav" and apply th estyle of CSS for max-width: 540px
+  // When click on icon of menu in mobile version, add a class to show navigation
 }
 
 // DOM Elements
