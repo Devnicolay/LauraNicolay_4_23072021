@@ -8,7 +8,7 @@ Projet 4 du parcours développeur Front-end chez Openclassrooms qui a pour objec
 
 ## Lien du projet
 
-[Site Web FishEye](https://devnicolay.github.io/LauraNicolay_4_23072021/)
+[Site Web GameOn](https://devnicolay.github.io/LauraNicolay_4_23072021/)
 
 ## Maquette mobile de la page d'accueil
 
